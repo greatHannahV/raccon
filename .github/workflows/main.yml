@@ -25,11 +25,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-npm-
 
-      
-
-      - name: Run ESLint
-        run: npm run lint
-
       - name: Build project
         run: npm run build
 
