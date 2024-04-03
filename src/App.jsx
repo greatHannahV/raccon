@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import Spinner from './Spinner'
-
+import './Spinner.css'
 function App() {
   const lineStyle = {
     width: '120%',
@@ -14,7 +13,7 @@ function App() {
   const handleClick = () => {
     setIsNotClicked(false) // Changed to false when clicked
     setIsLoading(true)
-    const audio = new Audio('../img/song.m4a') // Corrected path to audio file
+    const audio = new Audio('./img/song.m4a') // Corrected path to audio file
     audio.play().catch((error) => console.error('Audio playback failed', error))
 
     setTimeout(() => {
@@ -79,7 +78,7 @@ function App() {
         <div className="flex justify-center items-center md:justify-end md:col-span-1 ">
           <img
             className="w-full  h-auto object-cover md:w-auto md:h-auto "
-            src="../img/rac.jpg"
+            src="./img/rac.jpg"
             alt="raccoon"
           />
         </div>
@@ -89,3 +88,11 @@ function App() {
 }
 
 export default App
+
+const Spinner = () => {
+  return (
+    <div className="spinner-container">
+      <img className="spinner" src="./img/spinner.png" alt="Loading..." />
+    </div>
+  )
+}
