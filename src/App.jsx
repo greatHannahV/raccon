@@ -9,17 +9,17 @@ function App() {
   }
 
   const [isLoading, setIsLoading] = useState(false)
-  const [isNotClicked, setIsNotClicked] = useState(true) // Changed to true initially
+  const [isNotClicked, setIsNotClicked] = useState(true)
   const handleClick = () => {
-    setIsNotClicked(false) // Changed to false when clicked
+    setIsNotClicked(false)
     setIsLoading(true)
-    const audio = new Audio('./img/song.m4a') // Corrected path to audio file
-    audio.play().catch((error) => console.error('Audio playback failed', error))
+    // const audio = new Audio('./img/song.m4a') // Corrected path to audio file
+    // audio.play().catch((error) => console.error('Audio playback failed', error))
 
     setTimeout(() => {
       setIsLoading(false)
-      audio.pause()
-      audio.currentTime = 0
+      // audio.pause()
+      // audio.currentTime = 0
     }, 7000)
   }
 
@@ -34,8 +34,17 @@ function App() {
     )
   }
 
-  if (isLoading) return <Spinner />
-
+  // if (isLoading) return <Spinner />
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <video autoPlay loop className="object-cover w-[350px] h-auto">
+          <source src="./img/racvideo.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    )
+  }
   return (
     <>
       <header className="flex flex-col px-12 mx-[80px] text-[170px]   md:pt-5 ">
