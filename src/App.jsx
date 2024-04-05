@@ -78,7 +78,8 @@ function App() {
         <div className="flex justify-center items-center md:justify-end md:col-span-1 ">
           <img
             className="w-full  h-auto object-cover md:w-auto md:h-auto "
-            src="./img/rac.jpg"
+            // src="./img/rac.jpg"
+            src="./img/rac-lazy.jpg"
             alt="raccoon"
           />
         </div>
