@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './Spinner.css'
+// import './Spinner.css'
 function App() {
   const lineStyle = {
     width: '120%',
@@ -99,10 +99,10 @@ function App() {
 
 export default App
 
-const Spinner = () => {
-  return (
-    <div className="spinner-container">
-      <img className="spinner" src="./img/spinner.png" alt="Loading..." />
-    </div>
-  )
-}
+// const Spinner = () => {
+//   return (
+//     <div className="spinner-container">
+//       <img className="spinner" src="./img/spinner.png" alt="Loading..." />
+//     </div>
+//   )
+// }
