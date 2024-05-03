@@ -1,5 +1,5 @@
 import { useState } from 'react'
-// import './Spinner.css'
+
 function App() {
   const lineStyle = {
     width: '120%',
@@ -14,7 +14,6 @@ function App() {
     setIsLoading(false)
   }, 7000)
 
-  // if (isLoading) return <Spinner />
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-screen">
@@ -64,7 +63,6 @@ function App() {
         <div className="flex justify-center items-center md:justify-end md:col-span-1 ">
           <img
             className="w-full  h-auto object-cover md:w-auto md:h-auto "
-            // src="./img/rac.jpg"
             src="./public/rac-lazy.jpg"
             alt="raccoon"
           />
