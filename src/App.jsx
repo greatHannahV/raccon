@@ -13,13 +13,13 @@ function App() {
   const handleClick = () => {
     setIsNotClicked(false)
     setIsLoading(true)
-    // const audio = new Audio('./img/song.m4a') // Corrected path to audio file
-    // audio.play().catch((error) => console.error('Audio playback failed', error))
+    const audio = new Audio('./public/song.m4a') // Corrected path to audio file
+    audio.play().catch((error) => console.error('Audio playback failed', error))
 
     setTimeout(() => {
       setIsLoading(false)
-      // audio.pause()
-      // audio.currentTime = 0
+      audio.pause()
+      audio.currentTime = 0
     }, 7000)
   }
 
@@ -28,7 +28,7 @@ function App() {
     return (
       <div className="flex items-center justify-center h-screen text-8xl ">
         <button className="border px-5 py-7 border-white" onClick={handleClick}>
-          Start Loading
+          Загрузить страницу
         </button>
       </div>
     )
@@ -38,10 +38,7 @@ function App() {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-screen">
-        <video autoPlay loop className="object-cover w-[350px] h-auto">
-          <source src="./img/racvideo.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <Spinner />
       </div>
     )
   }
@@ -88,7 +85,7 @@ function App() {
           <img
             className="w-full  h-auto object-cover md:w-auto md:h-auto "
             // src="./img/rac.jpg"
-            src="./img/rac-lazy.jpg"
+            src="./public/rac-lazy.jpg"
             alt="raccoon"
           />
         </div>
@@ -99,10 +96,17 @@ function App() {
 
 export default App
 
-// const Spinner = () => {
-//   return (
-//     <div className="spinner-container">
-//       <img className="spinner" src="./img/spinner.png" alt="Loading..." />
-//     </div>
-//   )
-// }
+const Spinner = () => {
+  return (
+    <div
+      className="flex items-center justify-center"
+      style={{ width: '350px', height: '350px' }}
+    >
+      <img
+        className="w-full h-full object-cover animate-spin"
+        src="./public/cover.jpg"
+        alt="Loading..."
+      />
+    </div>
+  )
+}
