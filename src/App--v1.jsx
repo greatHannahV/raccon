@@ -8,11 +8,31 @@ function App() {
     margin: '10px 0',
   }
 
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
+  const [isNotClicked, setIsNotClicked] = useState(true)
+  const handleClick = () => {
+    setIsNotClicked(false)
+    setIsLoading(true)
+    const audio = new Audio('./public/song.m4a') // Corrected path to audio file
+    audio.play().catch((error) => console.error('Audio playback failed', error))
 
-  setTimeout(() => {
-    setIsLoading(false)
-  }, 7000)
+    setTimeout(() => {
+      setIsLoading(false)
+      audio.pause()
+      audio.currentTime = 0
+    }, 7000)
+  }
+
+  if (isNotClicked) {
+    // Added curly braces for if statement block
+    return (
+      <div className="flex items-center justify-center h-screen text-8xl ">
+        <button className="border px-5 py-7 border-white" onClick={handleClick}>
+          Загрузить страницу
+        </button>
+      </div>
+    )
+  }
 
   // if (isLoading) return <Spinner />
   if (isLoading) {
